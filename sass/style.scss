@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+@import "setting/var";
+@import "mixin/mixin";
+@import "base/reset";
+
+html, body {
+  /* font-family: “游ゴシック体”, YuGothic, “游ゴシック Medium”, “Yu Gothic Medium”, “游ゴシック”, “Yu Gothic”, sans-serif; */
+  font-family: 'Noto Sans JP', 'ヒラギノ角ゴ', sans-serif;
+  font-size: 62.5%;
+}
+.wrap {
+  overflow: hidden; /* 右側の余白消し */
+}
+
+/* ---------------------------------------
+index.html
+
+※なぜか各page(セクション)の.scssから
+編集ができず、style.scssに直接書き込めば
+編集ができる、という状況です
+※とりあえずはお問い合わせフォーム以外は
+スタイル崩れがなかったので、
+このまま(@import "";での読み込み)にしています
+⇢各pageで変更修正し、style.scssで@import"";を
+コメントアウト、コメントアウト解除すれば
+変更修正が適用される
+
+1.header
+2.top
+3.card
+4.news
+5.price
+6.access
+6.5.q&a 追加
+7.contact
+8.footer
+--------------------------------------- */
+
+/* header------------------------------ */
+@import "page/1-header/header";
+/* ------------------------------------ */
+
+// /* top--------------------------------- */
+// @import "page/2-top/top";
+// /* ------------------------------------ */
+
+// /* top swiper-------------------------- */
+// @import "page/2-top/top_swiper";
+// /* ------------------------------------ */
+
+/* top slick--------------------------- */
+@import "page/2-top/top_slick";
+/* ------------------------------------ */
+
+/* card-------------------------------- */
+@import "page/3-card/card";
+/* ------------------------------------ */
+
+/* news -resposive1-------------------- */
+@import "page/4-news/news";
+/* ------------------------------------ */
+
+/* price------------------------------- */
+@import "page/5-price/price";
+/* ------------------------------------ */
+
+/* access------------------------------ */
+@import "page/6-access/access";
+/* ------------------------------------ */
+
+/* q&a--------------------------------- */
+@import "page/6.5-q&a/qa";
+/* ------------------------------------ */
+
+/* contact----------------------------- */
+@import "page/7-contact/contact"; 
+/* _contact.scss内では修正変更できず、form_reset.cssをHTMLで読み込んでいるとスタイルが崩れる模様。
+⇢style.scssにリセットCSSも含めて直接スタイルを書き込めば崩れはなくなる
+⇢さらに、リセットCSSも含めた下記コードを_contact.scssに書き込み、style.scssにて@import "page/7-contact/contact";としてもスタイル崩れはなくなる。(ただし、先に_contact.scss内に下記コードを書き、その後style.scssに@import "page/7-contact/contact";と記述しないとスタイルは反映されない)
+⇢リセットCSSと分けてスタイルのコードを書くと崩れていた原因は、スタイリングの方の
+コードに & が不足していたこと！！！！！
+？_contact.scss内では修正変更できないのにここにコード書いて_contact.scssに書いたら反映されるのはなぜか？ */
+/* ------------------------------------ */
+
+/* footer------------------------------*/
+@import "page/8-footer/footer";
+/* ------------------------------------ */

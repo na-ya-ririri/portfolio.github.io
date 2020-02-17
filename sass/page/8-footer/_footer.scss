@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+
+.footer {
+  background: linear-gradient(180deg, $color-footer-back1 0%, $color-footer-back2 100%);
+  /* background: -moz-linear-gradient(top, $color-footer-back1 0%, $color-footer-back2 100%); 不要*/
+  background: -webkit-linear-gradient(top, $color-footer-back1 0%, $color-footer-back2 100%);
+  color: $color-white;
+  /* position: relative;.footer__top-linkリンクのため */
+  .inner {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    padding: 74px 0 86px;
+    @include mqTAB-FOOTER {
+      flex-direction: column;
+      align-items: center;
+      padding: 74px 0 60px;
+    }
+  } //.inner
+  &__company {
+    @include mqSP-FOOTER {
+      display: flex;
+      flex-direction: column;
+      order: 1; /* 縦の表示順番をかえてみた */
+    }
+    @include mqTAB-FOOTER {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+  } //.footer__company
+    &__company--logo {
+      margin-bottom: 20px;
+    }
+    &__company--address, &__company--tel {
+      margin-left: 3px;
+    }
+    &__company--address {
+      margin-bottom: 9px;
+    }
+  // } //.footer__company
+    &__company--desc {
+      @include mqTAB-FOOTER {
+        text-align: left;
+        margin-left: 20px;
+      }
+    } //.footer__company--desc
+    &__menu--list {
+      display: flex;
+      margin: 7px 224px 0 159px;
+      @include mqTAB-FOOTER {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0 0 30px 0;
+      }
+      &-item {
+        display: inline-block;
+        &:not(:last-child) {
+          margin-right: 30px;
+          @include mqSP-FOOTER {
+            margin-right: 25px;
+          }
+          @include mqXS {
+            margin-right: 20px;
+          }
+        }
+        .footer__menu--list-link {
+          font-family: 'Lato', 'Gill', sans-serif;
+          color: $color-white;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    } //.footer__menu--list
+    &__sns-link {
+      margin-top: 7px;
+      @include mqSP-FOOTER {
+        margin-bottom: 30px;
+      }
+      &--item {
+        &:hover {
+          opacity: 0.7;
+        }
+        &:not(:last-child) {
+          margin-right: 12px;
+        }
+      }
+    } //.footer__sns-link
+  // } //.inner
+  &__end {
+    text-align: center;
+    .cp-right {
+      font-family: 'Lato', 'Gill', sans-serif;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      display: inline-block;
+      margin-bottom: 31px;
+      @include mqSP-FOOTER {
+        margin-bottom: 110px;
+      }
+    }
+  } //.footer__end
+  &__top-link {
+    /* position: absolute; .footerをporに */
+    position: fixed; /* 画面右下に固定 */
+    right: 19px;
+    bottom: 14px;
+    display: none; /* jsでスクロールしたらふわっと表示/非表示させる */
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+} //.footer
